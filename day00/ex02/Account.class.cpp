@@ -119,22 +119,21 @@ void Account::displayStatus(void) const{
 }
 
 void Account::_displayTimestamp(void){
-    std::time_t time = std::time(NULL);
+    /*std::time_t time = std::time(NULL);
     struct tm *localTime = localtime(&time);
 
     // Printing timestamp
     std::cout << "[";
     std::cout << localTime->tm_year + 1900;
-    std::cout << std::setfill('0') << std::setw(2) << localTime->tm_mon;
+    std::cout << std::setfill('0') << std::setw(2) << localTime->tm_mon + 1;
     std::cout << std::setfill('0') << std::setw(2) << localTime->tm_mday;
     std::cout << "_";
     std::cout << std::setfill('0') << std::setw(2) << localTime->tm_hour;
     std::cout << std::setfill('0') << std::setw(2) << localTime->tm_min;
     std::cout << std::setfill('0') << std::setw(2) << localTime->tm_sec;
-    std::cout << "] ";
-
+    std::cout << "] ";*/
     // Uncomment this if you want to compare with log provided by school
-    //std::cout << "[19920104_091532] ";
+    std::cout << "[19920104_091532] ";
 }
 
 // Bonus

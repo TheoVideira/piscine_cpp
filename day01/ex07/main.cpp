@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 static bool bad_arguments( int argc, char **argv )
@@ -38,11 +39,28 @@ int         main( int argc, char **argv )
     std::string s1 = argv[2];
     std::string s2 = argv[3];
 
+    std::ifstream   file_in;
+    std::ofstream   file_out;
+    std::string     line;
+    
+    file_in.open(filename.c_str());
+
+    if (file_in.fail())
+    {
+        std::cerr << "Unable to open file" << std::endl;
+    }
+
+    file_out.open((filename + ".replace").c_str());
+    {
+        std::cerr << "Unable to open file" << std::endl;
+    }
+
     // Open input and output file
     
     // Check for errors
 
     // Replace strings
-
+    file_in.close();
+    file_out.close();
     return 0;
 }
