@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <cerrno> 
 #include <exception>
 
@@ -35,7 +36,7 @@ static void replace(std::string &line, const std::string &s1, const std::string 
     size_t pos = 0;
     size_t l1  = s1.length();
 
-    while ((pos = line.find(line, pos)) != std::string::npos)
+    while ((pos = line.find(s1, pos)) != std::string::npos)
         line.replace(pos, l1, s2);
 }
 
@@ -54,13 +55,14 @@ int         main( int argc, char **argv )
     std::ifstream   file_in;
     std::ofstream   file_out;
     std::string     line;
-    
+
 
     file_in.open(filename.c_str());
     if (file_in.fail()) {
-        std::cerr << "Unable to open file:" << std::strerror(errno) << std::endl;
+        std::cerr << "Unable to open input file: " << std::strerror(errno) << std::endl;
         return 1;
     }
+
 
     file_out.open((filename + ".replace").c_str(), std::ios::trunc);
     if (file_out.fail()) {
